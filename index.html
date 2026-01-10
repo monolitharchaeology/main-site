@@ -3,15 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monolith - Archaeology & Heritage</title>
+    <title>Coming Soon - Monolith Archaeology & Heritage</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .coming-soon-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .coming-soon-content {
+            background: var(--white);
+            padding: 4rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .coming-soon-content h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+
+        .coming-soon-content .tagline {
+            font-size: 1.3rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .coming-soon-message {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            margin: 1rem 0.5rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: #e67e31;
+            transform: translateY(-2px);
+        }
+
+        .coming-soon-footer {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #ecf0f1;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .coming-soon-container {
+                padding: 2rem 1rem;
+            }
+
+            .coming-soon-content {
+                padding: 2rem;
+            }
+
+            .coming-soon-content h2 {
+                font-size: 2rem;
+            }
+
+            .coming-soon-content .tagline {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">
+            <a href="coming-soon.html" class="nav-logo">
                 <img src="images/logos/Monolith vers. 7 W text.png" alt="Monolith Logo">
             </a>
             <div class="hamburger">
@@ -20,10 +104,7 @@
                 <span></span>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link active">Home</a></li>
-                <li><a href="team.html" class="nav-link">Team</a></li>
-                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-                <li><a href="partners.html" class="nav-link">Partners</a></li>
+                <li><a href="coming-soon.html" class="nav-link active">Home</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
         </div>
@@ -32,95 +113,33 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Monolith</h1>
+            <h1>Coming Soon</h1>
             <p>Uncovering History, Preserving Heritage</p>
-            <a href="#about" class="cta-button">Learn More</a>
+            <a href="#message" class="cta-button">Learn More</a>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>Who We Are</h2>
-            <div class="about-text">
-                <p>Introducing Mônolith Archaeology and Heritage. Mônolith is the culmination of friends and peers who want to remove barriers and make archaeology more accessible to the people and communities of North Wales. The team consists of Suzie whose specialism is working with communities and their connection to their local landscape. Callum an Archaeologist with years of experience excavating throughout the UK and beyond. Dr Mike Woods an archaeologist and specialist in the prehistory of the British Isles, and lastly Tom Blackburn an experimental archaeologist and blacksmith whose work primarily focuses on the metal work of prehistory.</p>
+    <!-- Message Section -->
+    <section id="message" class="about">
+        <div class="coming-soon-container">
+            <div class="coming-soon-content">
+                <h2>We're Preparing Something Extraordinary</h2>
+                <p class="tagline">Our team is working behind the scenes to bring you an enhanced experience.</p>
                 
-                <p>Together we met excavating community digs on Anglesey and have shared a deep passion for making the field of Archaeology and the ability to help communities connect with their local heritage and history more accessible. Mônolith aims to take this further than we have before by opening up more frequent excavations, experiments, demonstrations and talks where the focus is on engagement with people as much as it is with the science of archaeology and heritage.</p>
-                
-                <p>In 2026 our aim is to bring these experiences to North Wales and will soon be looking for groups of volunteers who want to help us uncover the past.</p>
-                
-                <p class="hashtags">#archaeology #Mônolith #Mônolitharchaeologyandheritage #Monolith #Northwales #Anglesey</p>
-            </div>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <i class="fas fa-compass"></i>
-                    <h3>Archaeological Exploration</h3>
-                    <p>Conducting rigorous field research and excavations to discover and document archaeological sites.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-book"></i>
-                    <h3>Documentation</h3>
-                    <p>Meticulous recording and analysis of artifacts, structures, and findings to create comprehensive historical records.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Heritage Preservation</h3>
-                    <p>Working to protect and preserve archaeological sites and artifacts for educational and cultural purposes.</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h3>Community Education</h3>
-                    <p>Sharing knowledge through public engagement, exhibitions, and educational programs about heritage and archaeology.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                <p class="coming-soon-message">
+                    Monolith Archaeology & Heritage is dedicated to uncovering history and preserving heritage across North Wales. 
+                    We're currently preparing our complete digital presence to better serve our community. 
+                    In the meantime, if you have any inquiries about our archaeology and heritage work, 
+                    please don't hesitate to reach out to us directly.
+                </p>
 
-    <!-- What We Do Section -->
-    <section class="what-we-do">
-        <div class="container">
-            <h2>What We Do</h2>
-            <p class="section-subtitle">Mônolith makes archaeology accessible and engaging for everyone. We focus on community-led excavations, demonstrations, and educational programs that help people connect with their local heritage and history.</p>
-            
-            <div class="services-list">
-                <div class="service-item">
-                    <h3>Community-Focused Excavations</h3>
-                    <p>We conduct regular archaeological digs that welcome volunteers from all backgrounds. Our excavations on Anglesey and across North Wales are designed to engage communities while advancing our understanding of local prehistory.</p>
+                <div style="margin: 2rem 0;">
+                    <a href="contact.html" class="cta-button">Get In Touch</a>
                 </div>
-                <div class="service-item">
-                    <h3>Experimental Archaeology</h3>
-                    <p>Through hands-on demonstrations and workshops, we bring prehistory to life. From Bronze Age metalworking to Iron Age smelting, participants learn ancient techniques and engage directly with how our ancestors lived and worked.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Heritage Connection Programs</h3>
-                    <p>We help communities understand and connect with their local landscape and heritage. Our specialists work with groups to explore the archaeology, history, and stories of their own regions.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Educational Talks & Workshops</h3>
-                    <p>We deliver engaging presentations and workshops for schools, community groups, and organizations, making the science and excitement of archaeology accessible to all ages.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Volunteer Opportunities</h3>
-                    <p>Looking to get involved? We're actively seeking volunteers to join us on excavations, experiments, and community events across North Wales in 2026 and beyond.</p>
-                </div>
-                <div class="service-item">
-                    <h3>Archaeological Research</h3>
-                    <p>Our research focuses on the prehistory of the British Isles, with particular emphasis on the prehistoric landscapes and monuments of North Wales and Anglesey.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Join the Mônolith Community</h2>
-            <p>We're on a mission to make archaeology accessible to everyone in North Wales. Whether you're interested in volunteering on digs, learning ancient skills, or connecting with your local heritage, there's a place for you in our community.</p>
-            <div class="cta-buttons">
-                <a href="team.html" class="btn btn-primary">Meet Our Team</a>
-                <a href="contact.html" class="btn btn-secondary">Volunteer With Us</a>
-                <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+                <div class="coming-soon-footer">
+                    <p>© 2026 Monolith Archaeology & Heritage. All rights reserved.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -135,9 +154,7 @@
             <div class="footer-section">
                 <h4>Quick Links</h4>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="team.html">Team</a></li>
-                    <li><a href="partners.html">Partners</a></li>
+                    <li><a href="coming-soon.html">Home</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
@@ -148,9 +165,6 @@
                     <a href="https://www.instagram.com/monolith.archaeology/"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Monolith. All rights reserved.</p>
         </div>
     </footer>
 
