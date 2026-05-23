@@ -20,19 +20,24 @@
                 <span></span>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="team.html" class="nav-link">Team</a></li>
-                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-                <li><a href="partners.html" class="nav-link">Partners</a></li>
-                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                <li><a href="index.html" class="nav-link" data-i18n="nav.home">Home</a></li>
+                <li><a href="team.html" class="nav-link" data-i18n="nav.team">Team</a></li>
+                <li><a href="gallery.html" class="nav-link" data-i18n="nav.gallery">Gallery</a></li>
+                <li><a href="partners.html" class="nav-link" data-i18n="nav.partners">Partners</a></li>
+                <li><a href="contact.html" class="nav-link active" data-i18n="nav.contact">Contact</a></li>
             </ul>
+            <div class="lang-toggle">
+                <button class="lang-btn" data-lang="en">EN</button>
+                <span class="lang-sep">|</span>
+                <button class="lang-btn" data-lang="cy">CY</button>
+            </div>
         </div>
     </nav>
 
     <!-- Page Header -->
     <section class="page-header">
-        <h1>Get Involved</h1>
-        <p>Join our community and help us uncover North Wales' prehistoric past. We're seeking volunteers, collaborators, and supporters.</p>
+        <h1 data-i18n="contact.header.h1">Get Involved</h1>
+        <p data-i18n="contact.header.p">Join our community and help us uncover North Wales' prehistoric past. We're seeking volunteers, collaborators, and supporters.</p>
     </section>
 
     <!-- Contact Content -->
@@ -41,92 +46,92 @@
             <div class="contact-wrapper">
                 <!-- Contact Information -->
                 <div class="contact-info">
-                    <h2>Contact Information</h2>
+                    <h2 data-i18n="contact.info.h2">Contact Information</h2>
                     
                     <div class="info-card">
                         <i class="fas fa-handshake"></i>
                         <div>
-                            <h3>Volunteer With Us</h3>
-                            <p>Interested in joining our excavations or community events?</p>
-                            <p class="info-desc">We're actively recruiting volunteers for 2026. Tell us about your interests and we'll find the right opportunity for you!</p>
+                            <h3 data-i18n="contact.vol.h3">Volunteer With Us</h3>
+                            <p data-i18n="contact.vol.p1">Interested in joining our excavations or community events?</p>
+                            <p class="info-desc" data-i18n="contact.vol.p2">We're actively recruiting volunteers for 2026. Tell us about your interests and we'll find the right opportunity for you!</p>
                         </div>
                     </div>
 
                     <div class="info-card">
                         <i class="fas fa-envelope"></i>
                         <div>
-                            <h3>Email</h3>
+                            <h3 data-i18n="contact.email.h3">Email</h3>
                             <p><a href="mailto:monolitharchaeology@gmail.com">monolitharchaeology@gmail.com</a></p>
-                            <p class="info-desc">Send us your inquiries and we'll respond promptly.</p>
+                            <p class="info-desc" data-i18n="contact.email.p2">Send us your inquiries and we'll respond promptly.</p>
                         </div>
                     </div>
 
                     <div class="info-card">
                         <i class="fas fa-phone"></i>
                         <div>
-                            <h3>Phone</h3>
-                            <p>Contact through email for fastest response</p>
-                            <p class="info-desc">We typically respond within 24-48 hours.</p>
+                            <h3 data-i18n="contact.phone.h3">Phone</h3>
+                            <p data-i18n="contact.phone.p1">Contact through email for fastest response</p>
+                            <p class="info-desc" data-i18n="contact.phone.p2">We typically respond within 24-48 hours.</p>
                         </div>
                     </div>
 
                     <div class="info-card">
                         <i class="fas fa-clock"></i>
                         <div>
-                            <h3>Response Time</h3>
-                            <p>Business Days: Monday - Friday</p>
-                            <p class="info-desc">We aim to respond to all inquiries within 2 business days.</p>
+                            <h3 data-i18n="contact.resp.h3">Response Time</h3>
+                            <p data-i18n="contact.resp.p1">Business Days: Monday - Friday</p>
+                            <p class="info-desc" data-i18n="contact.resp.p2">We aim to respond to all inquiries within 2 business days.</p>
                         </div>
                     </div>
 
                     <div class="info-card">
                         <i class="fas fa-handshake"></i>
                         <div>
-                            <h3>Collaboration Opportunities</h3>
-                            <p>Interested in partnering with Monolith?</p>
-                            <p class="info-desc">We welcome partnerships with institutions, researchers, and organizations aligned with our mission.</p>
+                            <h3 data-i18n="contact.collab.h3">Collaboration Opportunities</h3>
+                            <p data-i18n="contact.collab.p1">Interested in partnering with Monolith?</p>
+                            <p class="info-desc" data-i18n="contact.collab.p2">We welcome partnerships with institutions, researchers, and organizations aligned with our mission.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Contact Form -->
                 <div class="contact-form-wrapper">
-                    <h2>Send us a Message</h2>
+                    <h2 data-i18n="contact.form.h2">Send us a Message</h2>
                     <form class="contact-form" id="contactForm">
                         <div class="form-group">
-                            <label for="name">Full Name *</label>
+                            <label for="name" data-i18n="contact.form.name">Full Name *</label>
                             <input type="text" id="name" name="name" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="email">Email Address *</label>
+                            <label for="email" data-i18n="contact.form.email">Email Address *</label>
                             <input type="email" id="email" name="email" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="phone">Phone Number</label>
+                            <label for="phone" data-i18n="contact.form.phone">Phone Number</label>
                             <input type="tel" id="phone" name="phone">
                         </div>
 
                         <div class="form-group">
-                            <label for="subject">Subject *</label>
+                            <label for="subject" data-i18n="contact.form.subject">Subject *</label>
                             <select id="subject" name="subject" required>
-                                <option value="">Select a subject...</option>
-                                <option value="inquiry">General Inquiry</option>
-                                <option value="partnership">Partnership Opportunity</option>
-                                <option value="donation">Support & Donations</option>
-                                <option value="volunteer">Volunteer Opportunity</option>
-                                <option value="media">Media Inquiry</option>
-                                <option value="other">Other</option>
+                                <option value="" data-i18n="contact.form.opt0">Select a subject...</option>
+                                <option value="inquiry" data-i18n="contact.form.opt1">General Inquiry</option>
+                                <option value="partnership" data-i18n="contact.form.opt2">Partnership Opportunity</option>
+                                <option value="donation" data-i18n="contact.form.opt3">Support & Donations</option>
+                                <option value="volunteer" data-i18n="contact.form.opt4">Volunteer Opportunity</option>
+                                <option value="media" data-i18n="contact.form.opt5">Media Inquiry</option>
+                                <option value="other" data-i18n="contact.form.opt6">Other</option>
                             </select>
                         </div>
 
                         <div class="form-group">
-                            <label for="message">Message *</label>
+                            <label for="message" data-i18n="contact.form.message">Message *</label>
                             <textarea id="message" name="message" rows="6" required></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <button type="submit" class="btn btn-primary" data-i18n="contact.form.submit">Send Message</button>
                         <p class="form-note" id="formNote"></p>
                     </form>
                 </div>
@@ -137,37 +142,37 @@
     <!-- FAQ Section -->
     <section class="faq-section">
         <div class="container">
-            <h2>Frequently Asked Questions</h2>
+            <h2 data-i18n="contact.faq.h2">Frequently Asked Questions</h2>
             
             <div class="faq-list">
                 <div class="faq-item">
-                    <h3>How can I support Monolith's work?</h3>
-                    <p>There are several ways to support us: financial donations, volunteering your time and skills, partnerships for projects, or spreading awareness about archaeology and heritage preservation in your networks.</p>
+                    <h3 data-i18n="contact.faq.q1">How can I support Monolith's work?</h3>
+                    <p data-i18n="contact.faq.a1">There are several ways to support us: financial donations, volunteering your time and skills, partnerships for projects, or spreading awareness about archaeology and heritage preservation in your networks.</p>
                 </div>
 
                 <div class="faq-item">
-                    <h3>Can I volunteer with Monolith?</h3>
-                    <p>We welcome passionate volunteers! Contact us through the form above to inquire about current volunteer opportunities in archaeology, conservation, education, or administration.</p>
+                    <h3 data-i18n="contact.faq.q2">Can I volunteer with Monolith?</h3>
+                    <p data-i18n="contact.faq.a2">We welcome passionate volunteers! Contact us through the form above to inquire about current volunteer opportunities in archaeology, conservation, education, or administration.</p>
                 </div>
 
                 <div class="faq-item">
-                    <h3>How long have you been working in archaeology?</h3>
-                    <p>Our team brings together professionals with decades of combined experience in archaeological research, conservation, and heritage preservation across multiple continents.</p>
+                    <h3 data-i18n="contact.faq.q3">How long have you been working in archaeology?</h3>
+                    <p data-i18n="contact.faq.a3">Our team brings together professionals with decades of combined experience in archaeological research, conservation, and heritage preservation across multiple continents.</p>
                 </div>
 
                 <div class="faq-item">
-                    <h3>Where do you conduct archaeological projects?</h3>
-                    <p>We work on sites across different regions, collaborating with local communities and institutions. Contact us to learn about our current and upcoming project locations.</p>
+                    <h3 data-i18n="contact.faq.q4">Where do you conduct archaeological projects?</h3>
+                    <p data-i18n="contact.faq.a4">We work on sites across different regions, collaborating with local communities and institutions. Contact us to learn about our current and upcoming project locations.</p>
                 </div>
 
                 <div class="faq-item">
-                    <h3>How are your artifacts preserved?</h3>
-                    <p>We employ international best practices in conservation science, working with certified conservation specialists to ensure proper preservation of all discovered artifacts.</p>
+                    <h3 data-i18n="contact.faq.q5">How are your artifacts preserved?</h3>
+                    <p data-i18n="contact.faq.a5">We employ international best practices in conservation science, working with certified conservation specialists to ensure proper preservation of all discovered artifacts.</p>
                 </div>
 
                 <div class="faq-item">
-                    <h3>Do you work with universities and research institutions?</h3>
-                    <p>Yes! We actively collaborate with academic institutions on research projects, internships, and educational programs. We'd love to discuss partnership opportunities.</p>
+                    <h3 data-i18n="contact.faq.q6">Do you work with universities and research institutions?</h3>
+                    <p data-i18n="contact.faq.a6">Yes! We actively collaborate with academic institutions on research projects, internships, and educational programs. We'd love to discuss partnership opportunities.</p>
                 </div>
             </div>
         </div>
@@ -178,19 +183,19 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Monolith</h3>
-                <p>Uncovering History, Preserving Heritage</p>
+                <p data-i18n="footer.tagline">Uncovering History, Preserving Heritage</p>
             </div>
             <div class="footer-section">
-                <h4>Quick Links</h4>
+                <h4 data-i18n="footer.quickLinks">Quick Links</h4>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="team.html">Team</a></li>
-                    <li><a href="partners.html">Partners</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                    <li><a href="team.html" data-i18n="nav.team">Team</a></li>
+                    <li><a href="partners.html" data-i18n="nav.partners">Partners</a></li>
+                    <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h4>Connect With Us</h4>
+                <h4 data-i18n="footer.connect">Connect With Us</h4>
                 <div class="social-links">
                     <a href="https://www.facebook.com/profile.php?id=61578710743581&sk=directory_contact_info"><i class="fab fa-facebook"></i></a>
                     <a href="https://www.instagram.com/monolith.archaeology/"><i class="fab fa-instagram"></i></a>
@@ -198,10 +203,11 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Monolith. All rights reserved.</p>
+            <p data-i18n="footer.copyright">&copy; 2026 Monolith. All rights reserved.</p>
         </div>
     </footer>
 
+    <script src="translations.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

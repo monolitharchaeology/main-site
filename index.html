@@ -95,7 +95,7 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="coming-soon.html" class="nav-logo">
+            <a href="index.html" class="nav-logo">
                 <img src="images/logos/Monolith vers. 7 W text.png" alt="Monolith Logo">
             </a>
             <div class="hamburger">
@@ -104,18 +104,23 @@
                 <span></span>
             </div>
             <ul class="nav-menu">
-                <li><a href="coming-soon.html" class="nav-link active">Home</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="index.html" class="nav-link active" data-i18n="nav.home">Home</a></li>
+                <li><a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a></li>
             </ul>
+            <div class="lang-toggle">
+                <button class="lang-btn" data-lang="en">EN</button>
+                <span class="lang-sep">|</span>
+                <button class="lang-btn" data-lang="cy">CY</button>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Coming Soon</h1>
-            <p>Uncovering History, Preserving Heritage</p>
-            <a href="#message" class="cta-button">Learn More</a>
+            <h1 data-i18n="index.hero.h1">Coming Soon</h1>
+            <p data-i18n="index.hero.p">Uncovering History, Preserving Heritage</p>
+            <a href="#message" class="cta-button" data-i18n="index.hero.cta">Learn More</a>
         </div>
     </section>
 
@@ -123,10 +128,10 @@
     <section id="message" class="about">
         <div class="coming-soon-container">
             <div class="coming-soon-content">
-                <h2>We're Preparing Something Extraordinary</h2>
-                <p class="tagline">Our team is working behind the scenes to bring you an enhanced experience.</p>
+                <h2 data-i18n="index.msg.h2">We're Preparing Something Extraordinary</h2>
+                <p class="tagline" data-i18n="index.msg.tagline">Our team is working behind the scenes to bring you an enhanced experience.</p>
                 
-                <p class="coming-soon-message">
+                <p class="coming-soon-message" data-i18n="index.msg.body">
                     Monolith Archaeology & Heritage is dedicated to uncovering history and preserving heritage across North Wales. 
                     We're currently preparing our complete digital presence to better serve our community. 
                     In the meantime, if you have any inquiries about our archaeology and heritage work, 
@@ -134,11 +139,11 @@
                 </p>
 
                 <div style="margin: 2rem 0;">
-                    <a href="contact.html" class="cta-button">Get In Touch</a>
+                    <a href="contact.html" class="cta-button" data-i18n="index.msg.cta">Get In Touch</a>
                 </div>
 
                 <div class="coming-soon-footer">
-                    <p>© 2026 Monolith Archaeology & Heritage. All rights reserved.</p>
+                    <p data-i18n="index.footer.copy">© 2026 Monolith Archaeology & Heritage. All rights reserved.</p>
                 </div>
             </div>
         </div>
@@ -149,17 +154,17 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Monolith</h3>
-                <p>Uncovering History, Preserving Heritage</p>
+                <p data-i18n="footer.tagline">Uncovering History, Preserving Heritage</p>
             </div>
             <div class="footer-section">
-                <h4>Quick Links</h4>
+                <h4 data-i18n="footer.quickLinks">Quick Links</h4>
                 <ul>
-                    <li><a href="coming-soon.html">Home</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                    <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h4>Connect With Us</h4>
+                <h4 data-i18n="footer.connect">Connect With Us</h4>
                 <div class="social-links">
                     <a href="https://www.facebook.com/profile.php?id=61578710743581&sk=directory_contact_info"><i class="fab fa-facebook"></i></a>
                     <a href="https://www.instagram.com/monolith.archaeology/"><i class="fab fa-instagram"></i></a>
@@ -168,6 +173,7 @@
         </div>
     </footer>
 
+    <script src="translations.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

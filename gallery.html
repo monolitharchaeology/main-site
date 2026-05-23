@@ -20,19 +20,24 @@
                 <span></span>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
-                <li><a href="team.html" class="nav-link">Team</a></li>
-                <li><a href="partners.html" class="nav-link">Partners</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><a href="index.html" class="nav-link" data-i18n="nav.home">Home</a></li>
+                <li><a href="gallery.html" class="nav-link active" data-i18n="nav.gallery">Gallery</a></li>
+                <li><a href="team.html" class="nav-link" data-i18n="nav.team">Team</a></li>
+                <li><a href="partners.html" class="nav-link" data-i18n="nav.partners">Partners</a></li>
+                <li><a href="contact.html" class="nav-link" data-i18n="nav.contact">Contact</a></li>
             </ul>
+            <div class="lang-toggle">
+                <button class="lang-btn" data-lang="en">EN</button>
+                <span class="lang-sep">|</span>
+                <button class="lang-btn" data-lang="cy">CY</button>
+            </div>
         </div>
     </nav>
 
     <!-- Page Header -->
     <section class="page-header">
-        <h1>Gallery</h1>
-        <p>Explore our excavations, discoveries, and community events across North Wales</p>
+        <h1 data-i18n="gallery.header.h1">Gallery</h1>
+        <p data-i18n="gallery.header.p">Explore our excavations, discoveries, and community events across North Wales</p>
     </section>
 
     <!-- Gallery Section -->
@@ -58,20 +63,20 @@
         <div class="footer-content">
             <div class="footer-section">
                 <h3>Monolith</h3>
-                <p>Uncovering History, Preserving Heritage</p>
+                <p data-i18n="footer.tagline">Uncovering History, Preserving Heritage</p>
             </div>
             <div class="footer-section">
-                <h4>Quick Links</h4>
+                <h4 data-i18n="footer.quickLinks">Quick Links</h4>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="team.html">Team</a></li>
-                    <li><a href="partners.html">Partners</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                    <li><a href="gallery.html" data-i18n="nav.gallery">Gallery</a></li>
+                    <li><a href="team.html" data-i18n="nav.team">Team</a></li>
+                    <li><a href="partners.html" data-i18n="nav.partners">Partners</a></li>
+                    <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h4>Connect With Us</h4>
+                <h4 data-i18n="footer.connect">Connect With Us</h4>
                 <div class="social-links">
                     <a href="https://www.facebook.com/profile.php?id=61578710743581&sk=directory_contact_info"><i class="fab fa-facebook"></i></a>
                     <a href="https://www.instagram.com/monolith.archaeology/"><i class="fab fa-instagram"></i></a>
@@ -79,10 +84,11 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Monolith. All rights reserved.</p>
+            <p data-i18n="footer.copyright">&copy; 2026 Monolith. All rights reserved.</p>
         </div>
     </footer>
 
+    <script src="translations.js"></script>
     <script src="script.js"></script>
     <script src="gallery.js"></script>
 </body>

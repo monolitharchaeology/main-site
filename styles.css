@@ -72,6 +72,47 @@ a {
     width: auto;
 }
 
+/* ── Language Toggle ── */
+.lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-left: 1.5rem;
+}
+
+.lang-btn {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: var(--white);
+    padding: 0.25rem 0.55rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 700;
+    font-family: inherit;
+    letter-spacing: 0.05em;
+    border-radius: 3px;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.lang-btn:hover,
+.lang-btn.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--white);
+}
+
+.lang-sep {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.85rem;
+    user-select: none;
+}
+
+@media (max-width: 768px) {
+    .lang-toggle {
+        margin-left: 0.75rem;
+    }
+}
+
 .nav-menu {
     display: flex;
     list-style: none;
