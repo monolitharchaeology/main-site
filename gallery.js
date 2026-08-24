@@ -26,6 +26,7 @@ const galleryImages = [
 ];
 
 let currentIndex = 0;
+let modalImageIndex = 0;
 const imagesPerLoad = 6;
 let isLoading = false;
 
@@ -34,6 +35,8 @@ const loadingSpinner = document.getElementById('loadingSpinner');
 const galleryModal = document.getElementById('galleryModal');
 const galleryModalImg = document.getElementById('galleryModalImg');
 const galleryModalClose = document.querySelector('.gallery-modal-close');
+const galleryModalPrev = document.querySelector('.gallery-modal-prev');
+const galleryModalNext = document.querySelector('.gallery-modal-next');
 
 /* Load initial images */
 window.addEventListener('load', () => {
@@ -94,9 +97,19 @@ function loadMoreImages() {
 
 /* Modal functionality */
 function openModal(imageSrc) {
+    modalImageIndex = galleryImages.indexOf(imageSrc);
     galleryModal.style.display = 'flex';
-    galleryModalImg.src = imageSrc;
+    updateModalImage();
     document.body.style.overflow = 'hidden';
+}
+
+function updateModalImage() {
+    galleryModalImg.src = galleryImages[modalImageIndex];
+}
+
+function navigateModal(direction) {
+    modalImageIndex = (modalImageIndex + direction + galleryImages.length) % galleryImages.length;
+    updateModalImage();
 }
 
 function closeModal() {
@@ -105,6 +118,8 @@ function closeModal() {
 }
 
 galleryModalClose.addEventListener('click', closeModal);
+galleryModalPrev.addEventListener('click', () => navigateModal(-1));
+galleryModalNext.addEventListener('click', () => navigateModal(1));
 
 galleryModal.addEventListener('click', (e) => {
     if (e.target === galleryModal) {
@@ -113,7 +128,13 @@ galleryModal.addEventListener('click', (e) => {
 });
 
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && galleryModal.style.display === 'flex') {
+    if (galleryModal.style.display !== 'flex') return;
+
+    if (e.key === 'ArrowLeft') {
+        navigateModal(-1);
+    } else if (e.key === 'ArrowRight') {
+        navigateModal(1);
+    } else if (e.key === 'Escape') {
         closeModal();
     }
 });
