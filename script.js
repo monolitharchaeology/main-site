@@ -125,7 +125,59 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
    TEAM BIO LOADING
    ============================================= */
 
+const teamMembers = [
+    {
+        bioKey: 'bridge',
+        name: 'Matt "Bridge" Bainbridge',
+        image: 'images/profiles/bridge-profile new.png',
+        roleKey: 'team.bridge.pos'
+    },
+    {
+        bioKey: 'tom-blackburn',
+        name: 'Tom Blackburn',
+        image: 'images/profiles/Tom New.png',
+        roleKey: 'team.tom.pos'
+    },
+    {
+        bioKey: 'callum-humphreys-thornton',
+        name: 'Callum Humphreys Thornton',
+        image: 'images/profiles/Callum new.png',
+        roleKey: 'team.callum.pos'
+    },
+    {
+        bioKey: 'mike-woods',
+        name: 'Dr. Mike Woods',
+        image: 'images/profiles/Mike New.png',
+        roleKey: 'team.mike.pos'
+    }
+];
+
+const teamMemberByBioKey = new Map(teamMembers.map(member => [member.bioKey, member]));
 const bioElements = document.querySelectorAll('.bio[data-bio-key]');
+const readMoreButtons = document.querySelectorAll('.read-more-btn[data-bio-key]');
+const bioModal = document.getElementById('bioModal');
+const bioModalClose = document.querySelector('.bio-modal-close');
+const bioModalImage = document.querySelector('.bio-modal-image');
+const bioModalName = document.querySelector('.bio-modal-name');
+const bioModalRole = document.querySelector('.bio-modal-role');
+const bioModalText = document.querySelector('.bio-modal-text');
+const bioCache = new Map();
+let lastFocusedBioButton = null;
+
+document.querySelectorAll('.team-card').forEach(card => {
+    const bioKey = card.querySelector('.bio[data-bio-key]')?.getAttribute('data-bio-key');
+    const member = teamMemberByBioKey.get(bioKey);
+    if (member) card.dataset.memberId = member.bioKey;
+});
+
+function truncateBio(text, maxLength = 320) {
+    if (text.length <= maxLength) return text;
+
+    const contentLength = maxLength - 3;
+    const preview = text.slice(0, contentLength).trimEnd();
+    const wordBoundary = preview.lastIndexOf(' ');
+    return `${preview.slice(0, wordBoundary > 0 ? wordBoundary : contentLength)}...`;
+}
 
 async function loadTeamBios(lang = document.documentElement.lang || 'en') {
     if (!bioElements.length) return;
@@ -133,19 +185,25 @@ async function loadTeamBios(lang = document.documentElement.lang || 'en') {
     const fileSuffix = lang === 'cy' ? '-cy' : '';
     const bioRequests = Array.from(bioElements).map(async element => {
         const bioKey = element.getAttribute('data-bio-key');
+        const cacheKey = `${lang}:${bioKey}`;
         element.textContent = 'Loading biography...';
         element.setAttribute('aria-busy', 'true');
 
         try {
-            const response = await fetch(`Content/bios/${bioKey}${fileSuffix}.txt`);
+            let text = bioCache.get(cacheKey);
+            if (!text) {
+                const response = await fetch(`Content/bios/${bioKey}${fileSuffix}.txt`);
 
-            if (!response.ok) {
-                throw new Error(`Unable to load biography: ${response.url}`);
+                if (!response.ok) {
+                    throw new Error(`Unable to load biography: ${response.url}`);
+                }
+
+                text = (await response.text()).trim();
+                bioCache.set(cacheKey, text);
             }
 
-            const text = (await response.text()).trim();
             if (document.documentElement.lang === lang) {
-                element.textContent = text || 'Biography unavailable.';
+                element.textContent = text ? truncateBio(text) : 'Biography unavailable.';
             }
         } catch (error) {
             console.error(error);
@@ -160,11 +218,62 @@ async function loadTeamBios(lang = document.documentElement.lang || 'en') {
     await Promise.all(bioRequests);
 }
 
+function openBioModal(button) {
+    const card = button.closest('.team-card');
+    const member = teamMemberByBioKey.get(card?.dataset.memberId);
+    const lang = document.documentElement.lang || 'en';
+    const fullBio = member && bioCache.get(`${lang}:${member.bioKey}`);
+
+    if (!bioModal || !card || !member || !fullBio) return;
+
+    const role = card.querySelector(`[data-i18n="${member.roleKey}"]`);
+    bioModalImage.src = member.image;
+    bioModalImage.alt = member.name;
+    bioModalName.textContent = member.name;
+    bioModalRole.textContent = role.textContent;
+    bioModalText.textContent = fullBio;
+    bioModal.classList.add('is-open');
+    bioModal.setAttribute('aria-hidden', 'false');
+    bioModal.inert = false;
+    lastFocusedBioButton = button;
+    bioModalClose.focus();
+}
+
+function closeBioModal() {
+    if (!bioModal) return;
+
+    bioModal.classList.remove('is-open');
+    bioModal.setAttribute('aria-hidden', 'true');
+    bioModal.inert = true;
+    if (lastFocusedBioButton) lastFocusedBioButton.focus();
+}
+
+readMoreButtons.forEach(button => {
+    button.addEventListener('click', () => openBioModal(button));
+});
+
+if (bioModalClose) {
+    bioModalClose.addEventListener('click', closeBioModal);
+}
+
+if (bioModal) {
+    bioModal.addEventListener('click', event => {
+        if (event.target === bioModal) closeBioModal();
+    });
+}
+
+document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && bioModal?.classList.contains('is-open')) {
+        closeBioModal();
+    }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     loadTeamBios();
 });
 
 window.addEventListener('languageChanged', event => {
+    closeBioModal();
     loadTeamBios(event.detail.lang);
 });
 
