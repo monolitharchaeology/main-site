@@ -79,11 +79,8 @@ const translations = {
     'team.header.p':    'Meet the passionate professionals dedicated to making archaeology accessible to North Wales communities',
     'team.subtitle':    "Our team brings together expertise in prehistoric archaeology, experimental archaeology, and community engagement. Founded on shared passion for making archaeology accessible, we're dedicated to helping North Wales communities connect with their local heritage.",
     'team.mike.pos':    'Founder & Lead Archaeologist',
-    'team.mike.bio':    "An award-winning landscape archaeologist and geophysicist specialising in the prehistory of the British Isles, particularly the Late Neolithic and Early Bronze Age ritual landscapes. Dr. Woods holds a high 1st in both his undergraduate and Master's degrees, and completed his PhD at Manchester Metropolitan University. His work has been featured on BBC's Digging for Britain, Sky Travel's Expedition Unknown, and Channel 5's Digging Up Britain's Past. He was the on-set archaeologist for HBO's House of the Dragon season 2.",
     'team.tom.pos':     'Experimental Archaeologist & Metalworker',
-    'team.tom.bio':     "A Research Masters student at Manchester Metropolitan University specializing in experimental archaeology, particularly Iron and Bronze work. With 10 years of experience as a professional metalworker based in Macclesfield, Tom combines traditional craftsmanship with academic research. He is passionate about community engagement, teaching ancient blacksmithing and smelting techniques, and has pioneered innovative approaches combining 3D printing and modern technology to study ancient metallurgy.",
     'team.callum.pos':  'Prehistory Specialist & Community Archaeologist',
-    'team.callum.bio':  "A professional archaeologist and Masters student at the University of York specialising in early prehistory and human origins, with recent research focusing on the role of community in art during the Upper Palaeolithic. Callum has worked for leading archaeological firms including Cotswold Archaeology on major infrastructure projects. He is deeply committed to community involvement and accessibility in archaeology, combining his expertise with hands-on education and folk music traditions from his native Mid Wales.",
     'team.vals.h2':     'Our Values',
     'team.vals.com.h3': 'Community First',
     'team.vals.com.p':  "We center community voices and engagement in everything we do. Archaeology belongs to everyone, and we're committed to removing barriers to participation.",
@@ -218,11 +215,8 @@ const translations = {
     'team.header.p':    "Cwrddwch â'r gweithwyr proffesiynol brwdfrydig sy'n ymroddedig i wneud archaeoleg yn hygyrch i gymunedau Gogledd Cymru",
     'team.subtitle':    "Mae ein tîm yn dod ag arbenigedd mewn archaeoleg gynhanesyddol, archaeoleg arbrofol, ac ymgysylltu cymunedol. Wedi'i sefydlu ar angerdd cyffredin am wneud archaeoleg yn hygyrch, rydym yn ymroddedig i helpu cymunedau Gogledd Cymru i gysylltu â'u treftadaeth leol.",
     'team.mike.pos':    'Sylfaenydd ac Archaeolegydd Arweiniol',
-    'team.mike.bio':    "Archaeolegydd tirwedd arobryn a geoffisegydd sy'n arbenigo mewn cynhanes Ynysoedd Prydain, yn enwedig tirweddau defodol y Neolithig Hwyr a'r Oes Efydd Gynnar. Mae Dr. Woods yn dal gradd 1af uchel mewn ei radd israddedig a'i radd Meistr, ac fe gwblhaodd ei PhD ym Mhrifysgol Metropolitan Manceinion. Mae ei waith wedi cael sylw ar Digging for Britain y BBC, Expedition Unknown Sky Travel, a Digging Up Britain's Past Channel 5. Ef oedd yr archaeolegydd ar y set ar gyfer House of the Dragon tymor 2 HBO.",
     'team.tom.pos':     'Archaeolegydd Arbrofol a Gweithiwr Metel',
-    'team.tom.bio':     "Myfyriwr Meistr Ymchwil ym Mhrifysgol Metropolitan Manceinion sy'n arbenigo mewn archaeoleg arbrofol, yn enwedig gwaith Haearn ac Efydd. Gyda 10 mlynedd o brofiad fel gweithiwr metel proffesiynol yn Macclesfield, mae Tom yn cyfuno crefftwriaeth draddodiadol ag ymchwil academaidd. Mae'n angerddol am ymgysylltu â'r gymuned, dysgu technegau gofannu a thoddi hynafol, ac wedi arloesi dulliau arloesol sy'n cyfuno argraffu 3D a thechnoleg fodern i astudio metelurgiaeth hynafol.",
     'team.callum.pos':  'Arbenigwr Cynhanes ac Archaeolegydd Cymunedol',
-    'team.callum.bio':  "Archaeolegydd proffesiynol a myfyriwr Meistr ym Mhrifysgol Efrog sy'n arbenigo mewn cynhanes cynnar a tharddiad dynol, gydag ymchwil diweddar yn canolbwyntio ar rôl y gymuned mewn celf yn ystod y Paleolithig Uchaf. Mae Callum wedi gweithio i gwmnïau archaeolegol blaenllaw gan gynnwys Archaeoleg Cotswold ar brosiectau seilwaith mawr. Mae'n ddwfn ymroddedig i ymglymiad cymunedol a hygyrchedd mewn archaeoleg, gan gyfuno ei arbenigedd ag addysg ymarferol a thraddodiadau cerddoriaeth werin o'i gynefin yng Nghanolbarth Cymru.",
     'team.vals.h2':     'Ein Gwerthoedd',
     'team.vals.com.h3': 'Y Gymuned yn Gyntaf',
     'team.vals.com.p':  "Rydym yn canoli lleisiau ac ymgysylltu cymunedol ym mhopeth a wnawn. Mae archaeoleg yn perthyn i bawb, ac rydym wedi ymrwymo i gael gwared ar rwystrau i gyfranogiad.",
@@ -309,6 +303,8 @@ function applyTranslations(lang) {
 
   // Persist choice across page navigation
   localStorage.setItem('preferredLang', lang);
+
+  window.dispatchEvent(new CustomEvent('languageChanged', { detail: { lang } }));
 }
 
 function initTranslations() {

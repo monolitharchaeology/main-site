@@ -122,6 +122,53 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 /* =============================================
+   TEAM BIO LOADING
+   ============================================= */
+
+const bioElements = document.querySelectorAll('.bio[data-bio-key]');
+
+async function loadTeamBios(lang = document.documentElement.lang || 'en') {
+    if (!bioElements.length) return;
+
+    const fileSuffix = lang === 'cy' ? '-cy' : '';
+    const bioRequests = Array.from(bioElements).map(async element => {
+        const bioKey = element.getAttribute('data-bio-key');
+        element.textContent = 'Loading biography...';
+        element.setAttribute('aria-busy', 'true');
+
+        try {
+            const response = await fetch(`Content/bios/${bioKey}${fileSuffix}.txt`);
+
+            if (!response.ok) {
+                throw new Error(`Unable to load biography: ${response.url}`);
+            }
+
+            const text = (await response.text()).trim();
+            if (document.documentElement.lang === lang) {
+                element.textContent = text || 'Biography unavailable.';
+            }
+        } catch (error) {
+            console.error(error);
+            if (document.documentElement.lang === lang) {
+                element.textContent = 'Biography unavailable.';
+            }
+        } finally {
+            element.removeAttribute('aria-busy');
+        }
+    });
+
+    await Promise.all(bioRequests);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadTeamBios();
+});
+
+window.addEventListener('languageChanged', event => {
+    loadTeamBios(event.detail.lang);
+});
+
+/* =============================================
    PAGE LOAD ANIMATIONS
    ============================================= */
 
