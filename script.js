@@ -163,9 +163,12 @@ const bioModalRole = document.querySelector('.bio-modal-role');
 const bioModalText = document.querySelector('.bio-modal-text');
 const bioCache = new Map();
 let lastFocusedBioButton = null;
+let previousBodyOverflow = null;
+let previousBackgroundAccessibilityState = null;
 
 document.querySelectorAll('.team-card').forEach(card => {
-    const bioKey = card.querySelector('.bio[data-bio-key]')?.getAttribute('data-bio-key');
+    const bioElement = card.querySelector('.bio[data-bio-key]');
+    const bioKey = bioElement ? bioElement.getAttribute('data-bio-key') : null;
     const member = teamMemberByBioKey.get(bioKey);
     if (member) card.dataset.memberId = member.bioKey;
 });
@@ -177,6 +180,46 @@ function truncateBio(text, maxLength = 320) {
     const preview = text.slice(0, contentLength).trimEnd();
     const wordBoundary = preview.lastIndexOf(' ');
     return `${preview.slice(0, wordBoundary > 0 ? wordBoundary : contentLength)}...`;
+}
+
+function getBioModalFocusableElements() {
+    if (!bioModal) return [];
+
+    return Array.from(bioModal.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]'
+    )).filter(element => !element.disabled && element.tabIndex >= 0);
+}
+
+function isolateBioModalBackground() {
+    if (!bioModal || previousBackgroundAccessibilityState) return;
+
+    previousBackgroundAccessibilityState = Array.from(document.body.children)
+        .filter(element => element !== bioModal)
+        .map(element => ({
+            element,
+            ariaHidden: element.getAttribute('aria-hidden'),
+            inert: element.inert
+        }));
+
+    previousBackgroundAccessibilityState.forEach(({ element }) => {
+        element.setAttribute('aria-hidden', 'true');
+        element.inert = true;
+    });
+}
+
+function restoreBioModalBackground() {
+    if (!previousBackgroundAccessibilityState) return;
+
+    previousBackgroundAccessibilityState.forEach(({ element, ariaHidden, inert }) => {
+        if (ariaHidden === null) {
+            element.removeAttribute('aria-hidden');
+        } else {
+            element.setAttribute('aria-hidden', ariaHidden);
+        }
+        element.inert = inert;
+    });
+
+    previousBackgroundAccessibilityState = null;
 }
 
 async function loadTeamBios(lang = document.documentElement.lang || 'en') {
@@ -220,7 +263,7 @@ async function loadTeamBios(lang = document.documentElement.lang || 'en') {
 
 function openBioModal(button) {
     const card = button.closest('.team-card');
-    const member = teamMemberByBioKey.get(card?.dataset.memberId);
+    const member = card ? teamMemberByBioKey.get(card.dataset.memberId) : null;
     const lang = document.documentElement.lang || 'en';
     const fullBio = member && bioCache.get(`${lang}:${member.bioKey}`);
 
@@ -232,11 +275,14 @@ function openBioModal(button) {
     bioModalName.textContent = member.name;
     bioModalRole.textContent = role.textContent;
     bioModalText.textContent = fullBio;
+    previousBodyOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    isolateBioModalBackground();
     bioModal.classList.add('is-open');
     bioModal.setAttribute('aria-hidden', 'false');
     bioModal.inert = false;
     lastFocusedBioButton = button;
-    bioModalClose.focus();
+    if (bioModalClose) bioModalClose.focus();
 }
 
 function closeBioModal() {
@@ -245,7 +291,17 @@ function closeBioModal() {
     bioModal.classList.remove('is-open');
     bioModal.setAttribute('aria-hidden', 'true');
     bioModal.inert = true;
-    if (lastFocusedBioButton) lastFocusedBioButton.focus();
+    restoreBioModalBackground();
+    if (previousBodyOverflow !== null) {
+        document.body.style.overflow = previousBodyOverflow;
+        previousBodyOverflow = null;
+    }
+
+    const originatingButton = lastFocusedBioButton;
+    lastFocusedBioButton = null;
+    if (originatingButton && originatingButton.isConnected && !originatingButton.disabled) {
+        originatingButton.focus();
+    }
 }
 
 readMoreButtons.forEach(button => {
@@ -260,13 +316,36 @@ if (bioModal) {
     bioModal.addEventListener('click', event => {
         if (event.target === bioModal) closeBioModal();
     });
-}
 
-document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && bioModal?.classList.contains('is-open')) {
-        closeBioModal();
-    }
-});
+    bioModal.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+            event.preventDefault();
+            event.stopPropagation();
+            closeBioModal();
+            return;
+        }
+
+        if (event.key !== 'Tab') return;
+
+        const focusableElements = getBioModalFocusableElements();
+        if (!focusableElements.length) {
+            event.preventDefault();
+            if (bioModalClose) bioModalClose.focus();
+            return;
+        }
+
+        const firstFocusableElement = focusableElements[0];
+        const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+        if (event.shiftKey && document.activeElement === firstFocusableElement) {
+            event.preventDefault();
+            lastFocusableElement.focus();
+        } else if (!event.shiftKey && document.activeElement === lastFocusableElement) {
+            event.preventDefault();
+            firstFocusableElement.focus();
+        }
+    });
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     loadTeamBios();
