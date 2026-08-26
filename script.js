@@ -312,6 +312,11 @@ if (bioModalClose) {
     bioModalClose.addEventListener('click', closeBioModal);
 }
 
+const bioModalCloseBottom = document.querySelector('.bio-modal-close-bottom');
+if (bioModalCloseBottom) {
+    bioModalCloseBottom.addEventListener('click', closeBioModal);
+}
+
 if (bioModal) {
     bioModal.addEventListener('click', event => {
         if (event.target === bioModal) closeBioModal();

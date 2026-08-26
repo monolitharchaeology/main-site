@@ -670,6 +670,32 @@ h2 {
     transform: scale(1.1);
 }
 
+.bio-modal-close-bottom {
+    display: block;
+    margin: 2rem auto 0;
+    padding: 0.5rem 1rem;
+    border: 0;
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    font: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.bio-modal-close-bottom:hover,
+.bio-modal-close-bottom:focus-visible {
+    background-color: #ff7a1f;
+    transform: translateY(-2px);
+}
+
+.bio-modal-close-bottom:focus-visible {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 3px;
+}
+
 @media (max-width: 600px) {
     .bio-modal-overlay {
         padding: 1rem;
@@ -687,6 +713,12 @@ h2 {
     .bio-modal-image {
         width: 120px;
         height: 120px;
+    }
+
+    .bio-modal-close-bottom {
+        margin: 1.5rem auto 0;
+        padding: 0.45rem 0.75rem;
+        font-size: 0.85rem;
     }
 }
 
