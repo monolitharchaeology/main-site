@@ -583,30 +583,6 @@ h2 {
     outline-offset: 3px;
 }
 
-.team-social {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    padding-bottom: 1.5rem;
-}
-
-.team-social a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background-color: var(--primary-color);
-    color: var(--white);
-    border-radius: 50%;
-    transition: all 0.3s ease;
-}
-
-.team-social a:hover {
-    background-color: var(--secondary-color);
-    transform: scale(1.1);
-}
-
 /* =============================================
    BIOGRAPHY MODAL STRUCTURE
    ============================================= */
