@@ -596,11 +596,13 @@ h2 {
     padding: 2rem;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
+    pointer-events: none;
 }
 
 .bio-modal-overlay.is-open {
     display: flex;
     animation: fadeIn 0.3s ease;
+    pointer-events: auto;
 }
 
 .bio-modal {
