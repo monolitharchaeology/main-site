@@ -159,7 +159,7 @@ const translations = {
 
     // ── Tudalen Hafan (Yn Dod yn Fuan) ───────────
     'index.hero.h1':       'Yn Dod yn Fuan',
-    'index.hero.p':        'Datgelu Hanes, Diogelu Treftadaeth a Gwneud Archaeoleg yn Hygyrch i Baw',
+    'index.hero.p':        'Datgelu Hanes, Diogelu Treftadaeth a Gwneud Archaeoleg yn Hygyrch i Bawb',
     'index.hero.cta':      'Dysgu Mwy',
     'index.msg.h2':        'Rydym yn Paratoi Rhywbeth Arbennig',
     'index.msg.tagline':   "Mae ein tîm yn gweithio y tu ôl i'r llenni i gynnig profiad gwell i chi.",
