@@ -13,14 +13,14 @@ const translations = {
     'nav.contact':  'Contact',
 
     // ── Shared Footer ───────────────────────────
-    'footer.tagline':    'Uncovering History, Preserving Heritage',
+    'footer.tagline':    'Uncovering History, Preserving Heritage and making Archaeology Accessible to All',
     'footer.quickLinks': 'Quick Links',
     'footer.connect':    'Connect With Us',
     'footer.copyright':  '© 2026 Monolith. All rights reserved.',
 
     // ── Index (Coming Soon) Page ─────────────────
     'index.hero.h1':       'Coming Soon',
-    'index.hero.p':        'Uncovering History, Preserving Heritage',
+    'index.hero.p':        'Uncovering History, Preserving Heritage and making Archaeology Accessible to All',
     'index.hero.cta':      'Learn More',
     'index.msg.h2':        "We're Preparing Something Extraordinary",
     'index.msg.tagline':   'Our team is working behind the scenes to bring you an enhanced experience.',
@@ -152,14 +152,14 @@ const translations = {
     'nav.contact':  'Cysylltu',
 
     // ── Troedyn Cyffredinol ──────────────────────
-    'footer.tagline':    'Datgelu Hanes, Gwarchod Treftadaeth',
+    'footer.tagline':    'Datgelu Hanes, Diogelu Treftadaeth a Gwneud Archaeoleg yn Hygyrch i Bawb',
     'footer.quickLinks': 'Dolenni Cyflym',
     'footer.connect':    'Cysylltwch â Ni',
     'footer.copyright':  '© 2026 Monolith. Cedwir pob hawl.',
 
     // ── Tudalen Hafan (Yn Dod yn Fuan) ───────────
     'index.hero.h1':       'Yn Dod yn Fuan',
-    'index.hero.p':        'Datgelu Hanes, Gwarchod Treftadaeth',
+    'index.hero.p':        'Datgelu Hanes, Diogelu Treftadaeth a Gwneud Archaeoleg yn Hygyrch i Baw',
     'index.hero.cta':      'Dysgu Mwy',
     'index.msg.h2':        'Rydym yn Paratoi Rhywbeth Arbennig',
     'index.msg.tagline':   "Mae ein tîm yn gweithio y tu ôl i'r llenni i gynnig profiad gwell i chi.",
